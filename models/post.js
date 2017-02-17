@@ -14,10 +14,10 @@ Post.save = (post) => {
   return db.none(`
     INSERT INTO posts
     (title,
-    content)
+    post_content)
     VALUES
     ($1, $2);`,
-    [post.title, post.content]
+    [post.title, post.post_content]
   )
 };
 

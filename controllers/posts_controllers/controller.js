@@ -56,4 +56,17 @@ controller.like = (req, res) => {
   });
 }
 
+controller.comment = (req, res) => {
+  Post
+  .findById(req.params.id)
+  .then((data) => {
+    res.render('comment', {
+      post: data
+    });
+  })
+  .catch((err) => {
+    console.log('ERROR:', err);
+  });
+}
+
 module.exports = controller;

@@ -6,9 +6,16 @@
   </head>
   <body>
     <h1><%= post.title %></h1>
+    <p><%= post.post_content %></p>
     <p>LIKES: <%= post.likes %></p>
       <form action="/posts/<%=post.id %>/like?_method=PUT&show=true" method = "POST">
         <input type="submit"value="LIKE">
       </form>
+      <a href="/posts/<%=post.id%>/comment">Add Comment</a>
+    <div class="comments">
+      <% comments.forEach((comment) => { %>
+
+      })
+    </div>
   </body>
 </html>
