@@ -1,8 +1,6 @@
 # Must haves:
 ### Front page (index):
-- Posts listed by likes
 - Post item
-  - Post name or topic
   - Post author
   - Date/time of post
 - Number of comments per post
