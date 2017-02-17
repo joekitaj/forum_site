@@ -11,8 +11,16 @@
       <form action="/posts/<%=post.id %>/like?_method=PUT&show=true" method = "POST">
         <input type="submit"value="LIKE">
       </form>
-      <a href="/posts/<%=post.id%>/comment">Add Comment</a>
     <div class="comments">
+      <% comments.forEach((comment) => { %>
+          <div class="comment">
+            <p><%= comment.comment_content %></p>
+          </div>
+      <% }) %>
     </div>
+    <form action="/posts/<%= post.id%>/" method="POST">
+      <input type="text" name="comment[comment_content]" value="">
+      <input type="submit" value="Add Comment">
+    </form>
   </body>
 </html>

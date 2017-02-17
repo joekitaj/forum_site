@@ -3,15 +3,15 @@ const db = require('../config/db');
 const Post = {};
 
 Post.findAll = () => {
-  return db.manyOrNone(`SELECT * FROM posts ORDER BY likes DESC`)
+  return db.query(`SELECT * FROM posts ORDER BY likes DESC`)
 };
 
 Post.findById = (id) => {
-  return db.one(`SELECT * FROM posts WHERE id = $1`, [id])
+  return db.query(`SELECT * FROM posts WHERE id = $1`, [id])
 };
 
 Post.save = (post) => {
-  return db.none(`
+  return db.query(`
     INSERT INTO posts
     (title,
     post_content)
@@ -22,7 +22,7 @@ Post.save = (post) => {
 };
 
 Post.like = (id) => {
-  return db.none(`
+  return db.query(`
     UPDATE posts
     SET
     likes = likes + 1

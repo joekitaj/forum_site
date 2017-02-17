@@ -2,10 +2,9 @@ const Post = require('../../models/post');
 const Comment = require('../../models/comment');
 const async = require('async');
 
-
-
 let controller = {};
 
+// Show the home page with all posts
 controller.index = (req, res) => {
   Post
   .findAll()
@@ -17,19 +16,53 @@ controller.index = (req, res) => {
   });
 };
 
+// Select a single post and show it
 controller.show = (req, res) => {
-  Post
-  .findById(req.params.id)
-  .then((data) => {
-    res.render('show', {post: data})
-  })
+  let post_data;
+  let comment_data;
+
+  const getPosts = (cb) => {
+    Post
+    .findById(req.params.id)
+    .then((posts) => {
+      post_data = posts;
+      cb();
+    });
+  }
+
+  const getComments = (cb) => {
+    Comment
+    .findAllByPostId(req.params.id)
+    .then((comments) => {
+      comment_data = comments;
+      cb();
+    });
+  }
+
+  async.parallel([getPosts, getComments], () => {
+    res.render('show', {
+      post: post_data[0],
+      comments: comment_data
+    });
+  });
 }
 
-controller.new = (req, res) => {
+// Adds a new comment
+controller.addComment = (req, res) => {
+  Comment
+  .save(req.body.comment, req.params.id)
+  .then(() => {
+    res.redirect(`/posts/${req.params.id}`)
+  })
+};
+
+// Brings up the new post screen
+controller.newPost = (req, res) => {
   res.render('new');
 };
 
-controller.add = (req, res) => {
+// Adds the new post
+controller.addPost = (req, res) => {
   Post
   .save(req.body.post)
   .then(() => {
@@ -40,6 +73,7 @@ controller.add = (req, res) => {
   });
 };
 
+// Like functionality
 controller.like = (req, res) => {
   Post
   .like(req.params.id)
@@ -55,17 +89,14 @@ controller.like = (req, res) => {
   });
 }
 
-controller.comment = (req, res) => {
+// Brings up new comment screen
+controller.newComment = (req, res) => {
   Post
   .findById(req.params.id)
   .then((data) => {
-    res.render('comment', {
-      post: data
-    });
+    res.render('comment', {post: data});
   })
-  .catch((err) => {
-    console.log('ERROR:', err);
-  });
-}
+};
+
 
 module.exports = controller;
