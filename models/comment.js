@@ -1,18 +1,19 @@
 const db = require('../config/db');
 
-const c = {};
+const Comments = {};
 
-c.findAll = () => {
+Comments.findAll = () => {
   return db.manyOrNone(`SELECT * FROM comments`)
 };
 
-c.save = (comment) => {
-  return db.none(`
+Comments.save = (comment, id) => {
+  return db.query(`
     INSERT INTO comments
-    (comment_content)
+    (comment_content, post_id)
     VALUES
-    ($1);`,
-    [comment.comment_content])
+    ($1, $2)`,
+    [comment.comment_content, id]
+  );
 };
 
-module.exports = c;
+module.exports = Comments;
