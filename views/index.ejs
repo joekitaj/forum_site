@@ -6,8 +6,9 @@
   </head>
   <body>
     <h1>Hello World</h1>
+    <a href="/posts/new">New Post</a>
     <% posts.forEach((post) => { %>
-      <a href="./posts/<%=post.id%>">
+      <a href="/posts/<%=post.id%>">
         <div class="post">
           <h3><%= post.title %></h3>
           <p><%= post.post_content %></p>

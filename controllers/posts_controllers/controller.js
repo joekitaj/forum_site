@@ -16,7 +16,7 @@ controller.index = (req, res) => {
   });
 };
 
-// Select a single post and show it
+// Select a single post and show it and its comments
 controller.show = (req, res) => {
   let post_data;
   let comment_data;
@@ -54,6 +54,11 @@ controller.addComment = (req, res) => {
   .then(() => {
     res.redirect(`/posts/${req.params.id}`)
   })
+  Post
+  .comment(req.params.id)
+  .then(() => {
+    console.log('Done')
+  })
 };
 
 // Brings up the new post screen
@@ -89,14 +94,10 @@ controller.like = (req, res) => {
   });
 }
 
-// Brings up new comment screen
-controller.newComment = (req, res) => {
-  Post
-  .findById(req.params.id)
-  .then((data) => {
-    res.render('comment', {post: data});
-  })
-};
+controller.updateComment = (req, res) => {
+
+}
+
 
 
 module.exports = controller;

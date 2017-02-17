@@ -22,10 +22,19 @@ Post.save = (post) => {
 };
 
 Post.like = (id) => {
-  return db.query(`
+  return db.none(`
     UPDATE posts
     SET
     likes = likes + 1
+    WHERE id = $1`,
+    [id])
+};
+
+Post.comment = (id) => {
+  return db.none(`
+    UPDATE posts
+    SET
+    comments = comments + 1
     WHERE id = $1`,
     [id])
 };
