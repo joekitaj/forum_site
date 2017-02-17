@@ -2,27 +2,13 @@ const Comment = require('../../models/comment');
 
 let controller = {};
 
-controller.show = (req, res) => {
+// Adds a new comment
+controller.addComment = (req, res) => {
   Comment
-  .findAll()
-  .then((data) => {
-    res.render('show', {comments: data});
-  })
-  .catch((err) => {
-    console.log('Error:', err);
-  });
-};
-
-controller.newComment = (req, res) => {
-  res.render('comment')
-}
-
-controller.add = (req, res) => {
-  Comment
-  .save(req.body.comment)
+  .save(req.body.comment, req.params.id)
   .then(() => {
-    res.redirect('/posts')
+    res.redirect(`/posts/${req.params.id}`)
   })
-}
+};
 
 module.exports = controller;
