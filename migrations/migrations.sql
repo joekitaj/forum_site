@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS posts;
+
+CREATE TABLE posts (
+  id BIGSERIAL PRIMARY KEY,
+  title VARCHAR (255) NOT NULL,
+  content TEXT NOT NULL,
+  author VARCHAR(255),
+  stamp TIME,
+  likes INTEGER DEFAULT 0
+);

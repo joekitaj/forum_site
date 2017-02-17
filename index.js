@@ -14,7 +14,7 @@ app.listen(PORT);
 
 app.use(logger('dev'));
 
-app.use(bodyParser(urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(methodOverride('_method'))
 
