@@ -10,12 +10,25 @@ controller.index = (req, res) => {
   })
   .catch((err) => {
     console.log('Error:',err);
+  });
+};
+
+controller.show = (req, res) => {
+  Post
+  .findById(req.params.id)
+  .then((data) => {
+    res.render('show', {
+      post: data
+    });
   })
+  .catch((err) => {
+    console.log('ERROR:', err);
+  });
 }
 
 controller.new = (req, res) => {
   res.render('new');
-}
+};
 
 controller.add = (req, res) => {
   Post
@@ -23,6 +36,9 @@ controller.add = (req, res) => {
   .then(() => {
     res.redirect('/posts')
   })
-}
+  .catch((err) => {
+    console.log('Error:',err);
+  });
+};
 
 module.exports = controller;

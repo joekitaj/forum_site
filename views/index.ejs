@@ -7,11 +7,13 @@
   <body>
     <h1>Hello World</h1>
     <% posts.forEach((post) => { %>
-      <div class="post">
-        <h3><%= post.title %></h3>
-        <p><%= post.content %></p>
-        <p><%= post.likes %></p>
-      </div>
+      <a href="posts/<%= post.id %>">
+        <div class="post">
+          <h3><%= post.title %></h3>
+          <p><%= post.content %></p>
+          <p><%= post.likes %></p>
+        </div>
+      </a>
     <% }) %>
   </body>
 </html>
