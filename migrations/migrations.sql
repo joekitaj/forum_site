@@ -14,7 +14,8 @@ CREATE TABLE posts (
   post_content TEXT NOT NULL,
   author VARCHAR(255),
   stamp TIME,
-  likes INTEGER DEFAULT 0
+  likes INTEGER DEFAULT 0,
+  comments INTEGER DEFAULT 0
 );
 
 DROP TABLE IF EXISTS comments;
