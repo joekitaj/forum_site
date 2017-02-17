@@ -1,4 +1,8 @@
 const Post = require('../../models/post');
+const Comment = require('../../models/comment');
+const async = require('async');
+
+
 
 let controller = {};
 
@@ -17,13 +21,8 @@ controller.show = (req, res) => {
   Post
   .findById(req.params.id)
   .then((data) => {
-    res.render('show', {
-      post: data
-    });
+    res.render('show', {post: data})
   })
-  .catch((err) => {
-    console.log('ERROR:', err);
-  });
 }
 
 controller.new = (req, res) => {
