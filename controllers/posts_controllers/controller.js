@@ -41,4 +41,19 @@ controller.add = (req, res) => {
   });
 };
 
+controller.like = (req, res) => {
+  Post
+  .like(req.params.id)
+  .then(() => {
+    if (req.query.show) {
+      res.redirect(`/posts/${req.params.id}`)
+    } else {
+      res.redirect('/posts')
+    }
+  })
+  .catch((err) => {
+    console.log('ERROR:', err);
+  });
+}
+
 module.exports = controller;

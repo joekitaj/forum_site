@@ -21,4 +21,13 @@ Post.save = (post) => {
   )
 };
 
+Post.like = (id) => {
+  return db.none(`
+    UPDATE posts
+    SET
+    likes = likes + 1
+    WHERE id = $1`,
+    [id])
+};
+
 module.exports = Post;
