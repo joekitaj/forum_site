@@ -3,7 +3,8 @@ const db = require('../config/db');
 const Post = {};
 
 Post.findAll = () => {
-  return db.query(`SELECT * FROM posts ORDER BY likes DESC`)
+  return db.query(`
+    SELECT * FROM posts ORDER BY comments DESC, likes DESC;`)
 };
 
 Post.findById = (id) => {
