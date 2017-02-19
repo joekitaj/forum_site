@@ -98,6 +98,4 @@ controller.updateComment = (req, res) => {
 
 }
 
-
-
 module.exports = controller;
