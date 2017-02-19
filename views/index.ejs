@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="/master.css">
   </head>
   <body>
-    <h1>Joe's Forum</h1>
-    <a href="/posts/new">New Post</a>
-    <% posts.forEach((post) => { %>
-      <a href="/posts/<%=post.id%>">
-        <div class="post">
-          <h3><%= post.title %></h3>
-          <p><%= post.post_content %></p>
-          <p>Likes: <%= post.likes %></p>
-          <p>Comments: <%= post.comments %></p>
-        </div>
-      </a>
-    <% }) %>
+    <header>
+      <h1 class="main-title">Joe's Forum</h1>
+      <a href="/posts/new">New Post</a>
+    </header>
+    <main>
+      <div class="posts">
+        <% posts.forEach((post) => { %>
+          <a href="/posts/<%=post.id%>">
+            <div class="post">
+              <h3><%= post.title %></h3>
+              <p><%= post.post_content %></p>
+              <p>Likes: <%= post.likes %></p>
+              <p>Comments: <%= post.comments %></p>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    </main>
   </body>
 </html>
