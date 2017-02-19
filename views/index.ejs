@@ -2,10 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Document working</title>
+    <title>Joe's Forum</title>
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/master.css">
   </head>
   <body>
-    <h1>Hello World</h1>
+    <h1>Joe's Forum</h1>
     <a href="/posts/new">New Post</a>
     <% posts.forEach((post) => { %>
       <a href="/posts/<%=post.id%>">
