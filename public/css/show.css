@@ -1,0 +1,48 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: #49494A;
+}
+
+body {
+  background-color: #EDEEF0;
+}
+
+header {
+  text-align: center;
+  color: #49494A !important;
+}
+
+header h1 {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+header a {
+  text-decoration: none;
+  color: #49494A;
+  transition: 1s;
+}
+
+header a:hover {
+  color: #A51111;
+}
+
+.line {
+  margin: 0 auto;
+  width: 95%;
+  border-bottom: 8px solid #DEDEDE;
+}
+
+main {
+  margin: 20px 0 20px 20px;
+  width: 95%;
+}
+
+.comment-area {
+  margin: 20px 0 20px 20px;
+  width: 95%;
+}

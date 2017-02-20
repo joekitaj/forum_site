@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title><%= post.title %></title>
-  </head>
-  <body>
-    <a href="/posts">Home</a>
-    <h1><%= post.title %></h1>
-    <p><%= post.post_content %></p>
-    <p>LIKES: <%= post.likes %></p>
-      <form action="/posts/<%=post.id %>/like?_method=PUT&show=true" method = "POST">
-        <input type="submit"value="LIKE">
-      </form>
+<head>
+  <meta charset="utf-8">
+  <title><%= post.title %></title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/show.css">
+</head>
+<body>
+  <header>
+    <h1 class="main-title"><a href="/posts">COMMUNITY FORUM</a></h1>
+  </header>
+  <div class="line"></div>
+  <main>
+    <div class="post-body">
+      <h2><%= post.title %></h2>
+      <p><%= post.post_content %></p>
+      <p>LIKES: <%= post.likes %></p>
+    </div>
+    <form action="/posts/<%=post.id %>/like?_method=PUT&show=true" method = "POST">
+      <input type="submit"value="LIKE">
+    </form>
+  </main>
+  <div class="line"></div>
+  <div class="comment-area">
     <p>COMMENTS: <%= post.comments %></p>
     <div class="comments">
       <% comments.forEach((comment) => { %>
-          <div class="comment">
-            <p><%= comment.comment_content %></p>
-            <p><%= comment.stamp %></p>
-          </div>
-      <% }) %>
+        <div class="comment">
+          <p><%= comment.comment_content %></p>
+          <p><%= comment.stamp %></p>
+        </div>
+        <% }) %>
+      </div>
+      <textarea form="add-comment" name="comment[comment_content]" rows="8" cols="50"></textarea>
+      <form id="add-comment" action="/posts/<%= post.id%>/" method="POST">
+        <input type="submit" value="Add Comment">
+      </form>
     </div>
-    <textarea form="add-comment" name="comment[comment_content]" rows="8" cols="50"></textarea>
-    <form id="add-comment" action="/posts/<%= post.id%>/" method="POST">
-      <input type="submit" value="Add Comment">
-    </form>
   </body>
-</html>
+  </html>

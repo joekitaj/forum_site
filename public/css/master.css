@@ -17,6 +17,12 @@ header h1 {
   text-align: center;
 }
 
+.line {
+  margin: 0 auto;
+  width: 95%;
+  border-bottom: 8px solid #DEDEDE;
+}
+
 main {
   margin: 0 auto;
   padding: 0;
@@ -37,12 +43,6 @@ main .new-button {
 
 .new-button:hover {
   background-color: #A51111;
-}
-
-.line {
-  margin: 0 auto;
-  width: 95%;
-  border-bottom: 8px solid #DEDEDE;
 }
 
 .posts {
