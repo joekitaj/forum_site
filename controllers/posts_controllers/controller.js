@@ -1,6 +1,7 @@
 const Post = require('../../models/post');
 const Comment = require('../../models/comment');
 const async = require('async');
+const timestamp = require('time-stamp');
 
 let controller = {};
 
@@ -10,6 +11,7 @@ controller.index = (req, res) => {
   .findAll()
   .then((data) => {
     res.render('index', {posts: data});
+    console.log(timestamp());
   })
   .catch((err) => {
     console.log('Error:',err);
@@ -50,7 +52,7 @@ controller.show = (req, res) => {
 // Adds a new comment
 controller.addComment = (req, res) => {
   Comment
-  .save(req.body.comment, req.params.id)
+  .save(req.body.comment, req.params.id, timestamp('MM/DD/YYYY'))
   .then(() => {
     res.redirect(`/posts/${req.params.id}`)
   })
@@ -69,7 +71,7 @@ controller.newPost = (req, res) => {
 // Adds the new post
 controller.addPost = (req, res) => {
   Post
-  .save(req.body.post)
+  .save(req.body.post, timestamp('MM/DD/YYYY'))
   .then(() => {
     res.redirect('/posts')
   })

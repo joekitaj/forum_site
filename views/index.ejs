@@ -9,7 +9,7 @@
   <body>
     <header>
       <h1 class="main-title">Joe's Forum</h1>
-      <a href="/posts/new">New Post</a>
+      <a href="/posts/new">+ New Post</a>
     </header>
     <main>
       <div class="posts">
@@ -20,6 +20,7 @@
               <p><%= post.post_content %></p>
               <p>Likes: <%= post.likes %></p>
               <p>Comments: <%= post.comments %></p>
+              <p>Posted: <%= post.stamp %></p>
             </div>
           </a>
         <% }) %>

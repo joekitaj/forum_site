@@ -13,7 +13,7 @@ CREATE TABLE posts (
   title VARCHAR (255) NOT NULL,
   post_content TEXT NOT NULL,
   author VARCHAR(255),
-  stamp TIME,
+  stamp VARCHAR(255),
   likes INTEGER DEFAULT 0,
   comments INTEGER DEFAULT 0
 );
@@ -26,6 +26,6 @@ CREATE TABLE comments (
   post_id INTEGER REFERENCES posts(id),
   comment_content TEXT NOT NULL,
   author VARCHAR(255),
-  stamp TIME,
+  stamp VARCHAR(255),
   likes INTEGER DEFAULT 0
 );
