@@ -1,43 +1,78 @@
 * {
-  color: #F1F1F1;
+  font-family: Arial, sans-serif;
 }
 
-header, footer {
-  background-color: orange;
+body {
+  background-color: #EDEEF0;
 }
 
-footer {
+header {
   text-align: center;
-  padding: 30px;
-  margin: 80px 0 0 0;
+  color: #49494A;
 }
 
 header h1 {
   margin: 0;
   padding: 20px;
+  text-align: center;
 }
 
-header a {
+main {
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+}
+
+main .new-button {
   text-decoration: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-right: 20px;
-  margin-top: 30px;
+  display: block;
+  margin: 30px 0 20px 0;
+  padding: 3px 10px;
+  width: 150px;
+  text-align: center;
+  background-color: #C5C5C5;
+  color: #F1F1F1;
+}
+
+.line {
+  margin: 0 auto;
+  width: 95%;
+  border-bottom: 8px solid #DEDEDE;
 }
 
 .posts {
-  width: 50%;
-  margin: 30px 0 0 5%;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 95%;
 }
 
-.post {
-  width: 500px;
-  border: 3px solid;
-  border-radius: 30px;
-  background-color: orange;
-  margin: 10px auto;
-  padding-left: 10px;
+table {
+  padding: 0;
+  margin: 0 auto;
+  border-collapse: collapse;
+  color: #7F7F7F;
+}
+
+table th {
+  color: #49494A;
+}
+
+.table-title {
+  padding: 0 400px 0 30px !important;
+}
+
+.post-title {
+  padding: 0 400px 0 30px !important;
+}
+
+.table-row td {
+  padding: 20px 30px 20px 30px;
+  border-top: 2px solid #DEDEDE;
+  border-bottom: 2px solid #DEDEDE;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  margin: 60px 0 0 0;
+  color: #49494A;
 }
