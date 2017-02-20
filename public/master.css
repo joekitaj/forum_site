@@ -2,8 +2,14 @@
   color: #F1F1F1;
 }
 
-header {
+header, footer {
   background-color: orange;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  margin: 80px 0 0 0;
 }
 
 header h1 {
@@ -22,7 +28,7 @@ header a {
 
 .posts {
   width: 50%;
-  margin: 0 0 0 5%;
+  margin: 30px 0 0 5%;
   display: flex;
   flex-wrap: wrap;
 }
