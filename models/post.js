@@ -1,4 +1,5 @@
 const db = require('../config/db');
+const marked = require('marked');
 
 const Post = {};
 
@@ -19,7 +20,7 @@ Post.save = (post, time) => {
     stamp)
     VALUES
     ($1, $2, $3);`,
-    [post.title, post.post_content, time]
+    [post.title, marked(post.post_content), time]
   )
 };
 
