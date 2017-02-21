@@ -16,7 +16,7 @@
       <h2><%= post.title %></h2>
       <p>Posted by: <%= post.author %></p>
       <div class="content">
-
+        <%- post.post_content %>
       </div>
     </div>
     <form action="/posts/<%=post.id %>/like?_method=PUT&show=true" method = "POST">
@@ -33,7 +33,7 @@
       <% comments.forEach((comment) => { %>
         <div class="comment">
           <h4><%= comment.author%>:</h4>
-          <p><%= comment.comment_content %></p>
+          <p><%- comment.comment_content %></p>
           <p><%= comment.stamp %></p>
         </div>
         <div class="sm-line"></div>

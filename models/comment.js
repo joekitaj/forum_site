@@ -1,4 +1,5 @@
 const db = require('../config/db');
+const marked = require('marked');
 
 const Comment = {};
 
@@ -19,7 +20,7 @@ Comment.save = (comment, id, time, author) => {
     (comment_content, post_id, stamp, author)
     VALUES
     ($1, $2, $3, $4)`,
-    [comment.comment_content, id, time, author]
+    [marked(comment.comment_content), id, time, author]
   );
 };
 
