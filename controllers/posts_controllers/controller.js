@@ -1,9 +1,21 @@
 const Post = require('../../models/post');
 const Comment = require('../../models/comment');
+const User = require('../../models/user')
 const async = require('async');
 const timestamp = require('time-stamp');
+const session = require('express-session');
+let sess;
 
 let controller = {};
+
+controller.login = (req, res) => {
+  sess = req.session;
+  if (sess.username) {
+    res.redirect('/posts');
+  } else {
+    res.render('login')
+  }
+};
 
 // Show the home page with all posts
 controller.index = (req, res) => {
@@ -11,7 +23,6 @@ controller.index = (req, res) => {
   .findAll()
   .then((data) => {
     res.render('index', {posts: data});
-    console.log(timestamp());
   })
   .catch((err) => {
     console.log('Error:',err);
@@ -96,8 +107,14 @@ controller.like = (req, res) => {
   });
 }
 
-controller.updateComment = (req, res) => {
-
+controller.saveUser = (req, res) => {
+    sess = req.session;
+    sess.username = req.body.username;
+    User
+    .save(sess.username)
+    .then(() => {
+      res.redirect('/posts');
+    })
 }
 
 module.exports = controller;
