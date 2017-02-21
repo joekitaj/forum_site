@@ -16,46 +16,44 @@
   <!-- css files -->
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/master.css">
+  <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
   <header>
     <h1 class="main-title">COMMUNITY FORUM</h1>
   </header>
-  <div class="line"></div>
   <main>
-    <a href="/logout">Logout</a>
-    <a class="new-button" href="/posts/new">+ New Post</a>
+    <a class="logout" href="/logout">Logout</a>
+    <a class="new" href="/posts/new">+ New Post</a>
     <div class="posts">
-      <table>
-        <thead>
-          <tr class="table-row">
-            <th class="table-title">
-              <h4>DISCUSSIONS</h4>
-            </th>
-            <th>
-              LIKES
-            </th>
-            <th>
-              COMMENTS
-            </th>
-            <th>
-              DATE
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <% posts.forEach((post) => { %>
-            <tr class="table-row clickable" data-href="/posts/<%=post.id%>">
-              <td class="post-title"><%= post.title %></a></td>
-              <td><%= post.likes %></td>
-              <td><%= post.comments %></td>
-              <td><%= post.stamp %></td>
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
+      <div class="labels">
+        <h4 class="discussion-title">DISCUSSIONS</h4>
+        <h5 class="descriptor">LIKES</h5>
+        <h5 class="descriptor">COMMENTS</h5>
+        <h5 class="descriptor date">DATE</h5>
+        <h5 class="descriptor author-title">Author</h5>
       </div>
-    </main>
-    <footer>Copyright 2017 Joe Kitaj All Rights Reserved.</footer>
+      <% posts.forEach((post) => { %>
+        <div class="row clickable" data-href="/posts/<%=post.id%>">
+          <h4 class="post-title">
+            <%= post.title %>
+          </h4>
+          <h5 class="info likes">
+            <%= post.likes %>
+          </h5>
+          <h5 class="info comments">
+            <%= post.comments %>
+          </h5>
+          <h5 class="info stamp">
+            <%= post.stamp %>
+          </h5>
+          <h5 class="info author">
+            <%= post.author %>
+          </h5>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+  <footer>Copyright 2017 Joe Kitaj All Rights Reserved.</footer>
 </body>
 </html>

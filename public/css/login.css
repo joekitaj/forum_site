@@ -21,12 +21,13 @@ body {
   margin: 10px 0 0 0;
   width: 300px;
   background-color: #CFDDE9;
-  border: 1px grey solid;
-  color: grey;
+  border: 1px black solid;
+  color: black;
+  opacity: .8;
 }
 
 .main input:hover {
-  background-color: #AFAFEA;
+  background-color: red;
 }
 
 .submit {
