@@ -30,6 +30,7 @@
     <div class="comments">
       <% comments.forEach((comment) => { %>
         <div class="comment">
+          <h4><%= comment.author%>:</h4>
           <p><%= comment.comment_content %></p>
           <p><%= comment.stamp %></p>
         </div>
