@@ -10,10 +10,10 @@ router.get('/', controller.login);
 router.post('/login', controller.saveUser);
 
 router.get('/posts', controller.index);
-router.get('/new', controller.newPost);
-router.get('/:id', controller.show);
+router.get('/posts/new', controller.newPost);
+router.get('/posts/:id', controller.show);
 
-router.post('/', controller.addPost);
+router.post('/posts/new', controller.addPost);
 router.post('/:id', controller.addComment);
 
 
