@@ -1,5 +1,5 @@
 const express = require('express');
-const session = require('express-session')
+const session = require('express-session');
 const logger = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -21,6 +21,6 @@ app.use(logger('dev'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 app.use(require('./resources'));
