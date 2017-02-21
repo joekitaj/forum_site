@@ -12,15 +12,16 @@ Post.findById = (id) => {
   return db.query(`SELECT * FROM posts WHERE id = $1`, [id])
 };
 
-Post.save = (post, time) => {
+Post.save = (post, time, author) => {
   return db.query(`
     INSERT INTO posts
     (title,
     post_content,
-    stamp)
+    stamp,
+    author)
     VALUES
-    ($1, $2, $3);`,
-    [post.title, marked(post.post_content), time]
+    ($1, $2, $3, $4);`,
+    [post.title, marked(post.post_content), time, author]
   )
 };
 

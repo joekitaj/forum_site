@@ -20,14 +20,15 @@ controller.login = (req, res) => {
 };
 
 controller.saveUser = (req, res) => {
-    sess = req.session;
-    sess.username = req.body.username;
-    name = sess.username
-    User
-    .save(req.body.username)
-    .then(() => {
-      res.redirect('/posts');
-    })
+  console.log('Log:', req.body.user);
+  sess = req.session;
+  sess.username = req.body.user.username;
+  name = sess.username
+  User
+  .save(name)
+  .then(() => {
+    res.redirect('/posts');
+  })
 }
 
 // Show the home page with all posts
@@ -95,7 +96,7 @@ controller.newPost = (req, res) => {
 // Adds the new post
 controller.addPost = (req, res) => {
   Post
-  .save(req.body.post, timestamp('MM/DD/YYYY'))
+  .save(req.body.post, timestamp('MM/DD/YYYY'), name)
   .then(() => {
     res.redirect('/posts')
   })

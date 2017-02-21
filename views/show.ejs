@@ -12,9 +12,9 @@
   </header>
   <div class="lg-line"></div>
   <main>
-    <h1></h1>
     <div class="post-body">
       <h2><%= post.title %></h2>
+      <p>Posted by: <%= post.author %></p>
       <%= post.post_content %>
     </div>
     <form action="/posts/<%=post.id %>/like?_method=PUT&show=true" method = "POST">
