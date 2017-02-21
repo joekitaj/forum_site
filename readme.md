@@ -1,5 +1,5 @@
-## Still needs:
-- Marked
-- Sub comments
+# To Do:
+- Style logout
+- Style new page
 - Responsive design
-- Logout feature
+- add hour time

@@ -6,17 +6,17 @@
     <!-- css files -->
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/login.css">
   </head>
   <body>
-    <header>
-      <header>
-        <h1 class="main-title">COMMUNITY FORUM</h1>
-      </header>
-      <div class="line"></div>
-      <form class="add-user" action="./login" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="user[username]" value="">
-      </form>
-    </header>
+    <main class="main">
+      <h1 class="main-title">COMMUNITY FORUM</h1>
+      <div class="welcome">
+        <form class="add-user" action="./login" method="POST">
+          <input type="text" name="user[username]" placeholder="Username" class="user-input"><br>
+          <input type="submit" class="submit" value="Log in to Forum">
+        </form>
+      </div>
+    </main>
   </body>
 </html>
