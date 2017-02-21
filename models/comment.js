@@ -13,13 +13,13 @@ Comment.findAllByPostId = (id) => {
     `,[id])
 }
 
-Comment.save = (comment, id, time) => {
+Comment.save = (comment, id, time, author) => {
   return db.query(`
     INSERT INTO comments
-    (comment_content, post_id, stamp)
+    (comment_content, post_id, stamp, author)
     VALUES
-    ($1, $2, $3)`,
-    [comment.comment_content, id, time]
+    ($1, $2, $3, $4)`,
+    [comment.comment_content, id, time, author]
   );
 };
 
