@@ -77,7 +77,7 @@ controller.show = (req, res) => {
 // Adds a new comment
 controller.addComment = (req, res) => {
   Comment
-  .save(req.body.comment, req.params.id, timestamp('MM/DD/YYYY'))
+  .save(req.body.comment, req.params.id, timestamp('MM/DD/YYYY'), name)
   .then(() => {
     res.redirect(`/posts/${req.params.id}`)
   })

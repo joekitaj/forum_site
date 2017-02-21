@@ -3,7 +3,7 @@ const router = express.Router();
 
 const controller = require('./controller');
 
-router.put('/:id/like', controller.like);
+router.put('/posts/:id/like', controller.like);
 
 router.get('/', controller.login);
 router.get('/posts', controller.index);
