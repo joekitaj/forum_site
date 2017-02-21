@@ -7,7 +7,7 @@ User.save = (user) => {
     (username)
     VALUES
     ($1)`,
-    [user.username]
+    [user]
   )
 }
 

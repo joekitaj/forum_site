@@ -5,17 +5,30 @@ const async = require('async');
 const timestamp = require('time-stamp');
 const session = require('express-session');
 let sess;
+let name;
 
 let controller = {};
 
 controller.login = (req, res) => {
+  console.log(req.body);
   sess = req.session;
   if (sess.username) {
     res.redirect('/posts');
   } else {
-    res.render('login')
+    res.render('login', {user: sess.username})
   }
 };
+
+controller.saveUser = (req, res) => {
+    sess = req.session;
+    sess.username = req.body.username;
+    name = sess.username
+    User
+    .save(req.body.username)
+    .then(() => {
+      res.redirect('/posts');
+    })
+}
 
 // Show the home page with all posts
 controller.index = (req, res) => {
@@ -105,16 +118,6 @@ controller.like = (req, res) => {
   .catch((err) => {
     console.log('ERROR:', err);
   });
-}
-
-controller.saveUser = (req, res) => {
-    sess = req.session;
-    sess.username = req.body.username;
-    User
-    .save(sess.username)
-    .then(() => {
-      res.redirect('/posts');
-    })
 }
 
 module.exports = controller;

@@ -38,7 +38,7 @@
       </div>
       <div class="comment-input">
         <textarea form="add-comment" name="comment[comment_content]" rows="8" cols="50"></textarea>
-        <form id="add-comment" action="/posts/<%= post.id%>/" method="POST">
+        <form id="add-comment" action="/posts/<%= post.id%>/comment" method="POST">
           <input class="comment-button" type="submit" value="Add Comment">
         </form>
       </div>
