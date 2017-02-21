@@ -19,6 +19,16 @@ controller.login = (req, res) => {
   }
 };
 
+controller.logout = (req,res) => {
+req.session.destroy((err) => {
+  if(err) {
+    console.log(err);
+  } else {
+    res.redirect('/');
+  }
+});
+};
+
 controller.saveUser = (req, res) => {
   console.log('Log:', req.body.user);
   sess = req.session;

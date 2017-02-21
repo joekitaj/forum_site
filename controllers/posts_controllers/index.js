@@ -9,6 +9,9 @@ router.get('/', controller.login);
 router.get('/posts', controller.index);
 router.get('/posts/new', controller.newPost);
 router.get('/posts/:id', controller.show);
+router.get('/logout')
+
+router.get('/logout', controller.logout);
 
 router.post('/login', controller.saveUser);
 router.post('/posts/new', controller.addPost);
