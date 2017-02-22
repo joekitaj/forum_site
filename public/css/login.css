@@ -4,11 +4,6 @@
   font-family: 'Raleway', sans-serif;
 }
 
-body {
-   background: no-repeat center center fixed url('https://static.pexels.com/photos/325185/pexels-photo-325185.jpeg');
-   background-size: cover;
-}
-
 .main {
   margin: 80px auto;
   width: 80%;
@@ -20,7 +15,6 @@ body {
   padding: 10px;
   margin: 10px 0 0 0;
   width: 300px;
-  background-color: #CFDDE9;
   border: 1px black solid;
   color: black;
   opacity: .8;
