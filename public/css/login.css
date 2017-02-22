@@ -26,8 +26,8 @@ body {
   opacity: .8;
 }
 
-.main input:hover {
-  background-color: red;
+.main input:focus {
+  outline: none;
 }
 
 .submit {

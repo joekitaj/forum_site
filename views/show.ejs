@@ -3,7 +3,15 @@
 <head>
   <meta charset="utf-8">
   <title><%= post.title %></title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional Bootstrap theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- css files -->
   <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/master.css">
   <link rel="stylesheet" href="/css/show.css">
 </head>
 <body>
@@ -23,10 +31,15 @@
       <div class="likes">
         <p>LIKES: <%= post.likes %></p>
       </div>
-      <input class="like-button" type="submit" value="LIKE">
+      <input class="like-button btn btn-primary" type="submit" value="LIKE">
     </form>
   </main>
-  <div class="lg-line"></div>
+  <div class="comment-input">
+    <textarea form="add-comment" name="comment[comment_content]" rows="8" cols="50"></textarea>
+    <form id="add-comment" action="/posts/<%= post.id%>/comment" method="POST">
+      <input class="comment-button btn btn-primary" type="submit" value="Add Comment">
+    </form>
+  </div>
   <div class="comment-area">
     <p>COMMENTS: <%= post.comments %></p>
     <div class="comments">
@@ -38,12 +51,6 @@
         </div>
         <div class="sm-line"></div>
         <% }) %>
-      </div>
-      <div class="comment-input">
-        <textarea form="add-comment" name="comment[comment_content]" rows="8" cols="50"></textarea>
-        <form id="add-comment" action="/posts/<%= post.id%>/comment" method="POST">
-          <input class="comment-button" type="submit" value="Add Comment">
-        </form>
       </div>
     </div>
   </body>

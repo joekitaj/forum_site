@@ -1,0 +1,23 @@
+h1 {
+  margin: 20px;
+}
+
+main {
+  margin-left: 25px;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.comment-area {
+  margin: 20px 25px;
+}
+
+.comment {
+  border-bottom: 1px solid;
+}
+
+.comment-input {
+  margin: 20px 25px;
+}
