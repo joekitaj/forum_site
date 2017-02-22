@@ -1,121 +1,40 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-
-* {
-  font-family: 'Raleway', sans-serif;
-}
-
-body {
-   background: no-repeat center center fixed url('https://static.pexels.com/photos/247230/pexels-photo-247230.jpeg');
-   background-size: cover;
-}
-
 h1 {
-  margin: 20px 0 0 20px;
+  margin: 25px;
 }
 
-.logout {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 30px 40px 0 0;
-  text-decoration: none;
-  color: black;
+button {
+  margin: 0 25px;
 }
 
-.new {
-  display: block;
-  top: 0;
-  left: 0;
-  margin: 10px 0 0 20px;
-  text-decoration: none;
-  color: black !important;
-  padding: 20px 20px;
-  transition: 1s;
-}
-
-.new:hover {
-  color: red !important;
-}
-
-.posts {
-  width: 90%;
-  margin: 0 auto;
-  background-color: #DAE7F0;
-  opacity: .8;
-}
-
-.labels {
-  display: flex;
-  margin: 10px 0 0 0;
-  border-bottom: 1px solid;
-}
-
-.discussion-title {
-  display: block;
-  margin: 0 10% 0 0;
-}
-
-.descriptor {
-  display: block;
-  margin: 0 3% 10px 3%;
-  text-align: center;
-}
-
-.date {
-  width: 70.703px !important;
-  display: block;
+.main-body {
+  margin-top: 20px;
 }
 
 .row {
-  display: flex;
-  margin: 0;
-  padding: 10px 0;
+  padding: 20px 0;
+  transition: 1s;
   border-bottom: 1px solid;
 }
 
-.row:hover {
-  background-color: red;
+.clickable:hover {
+  cursor: pointer;
+  color: red;
+  background-color: grey;
 }
 
-.post-title {
-  display: block;
-  margin: 0 10% 0 0;
-  width: 105.656px;
-}
-
-.author-title {
-  text-align: left;
-  margin: 0 3% 10px 8% !important;
-}
-
-.info {
-  display: block;
-  margin: 0 3% 10px 3%;
-}
-
-.likes {
-  width: 35.531px;
-  text-align: center;
-}
-
-.comments {
-  width: 76.797px;
-  text-align: center;
-}
-
-.stamp {
-  text-align: center;
-}
-
-.author {
-  width: 41.47px;
-  text-align: center;
-  margin: 0 3% 10px 8% !important;
+.logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px 10px 0 0;
+  padding: 20px;
 }
 
 footer {
-  width: 100%;
   text-align: center;
-  margin-top: 100px;
+  margin: 50px 0;
+}
+
+@media (max-width: 620px) {
+
 }
