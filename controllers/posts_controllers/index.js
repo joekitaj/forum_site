@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+// See controller.js for each function
+// Routes were simplified for cleanliness
+
 const controller = require('./controller');
 
 router.put('/posts/:id/like', controller.like);

@@ -1,17 +1,26 @@
+// Require each model
 const Post = require('../../models/post');
 const Comment = require('../../models/comment');
-const User = require('../../models/user')
+const User = require('../../models/user');
+// Allows for multiple functions to run, asynchronously
 const async = require('async');
+// Logs date & current time
 const timestamp = require('time-stamp');
+// Keeps track of user login
 const session = require('express-session');
+// Session variables
 let sess;
 let name;
 
 let controller = {};
 
+// Brings up login page
 controller.login = (req, res) => {
   console.log(req.body);
   sess = req.session;
+  // If the session is running, and a
+  // username has been submitted,
+  // redirect to main page
   if (sess.username) {
     res.redirect('/posts');
   } else {
@@ -19,6 +28,7 @@ controller.login = (req, res) => {
   }
 };
 
+// ends the session on clicking logout
 controller.logout = (req,res) => {
 req.session.destroy((err) => {
   if(err) {
@@ -29,6 +39,7 @@ req.session.destroy((err) => {
 });
 };
 
+// Saves the username to both sessions and the user table
 controller.saveUser = (req, res) => {
   console.log('Log:', req.body.user);
   sess = req.session;
@@ -58,6 +69,7 @@ controller.show = (req, res) => {
   let post_data;
   let comment_data;
 
+  // grabs the specific post
   const getPosts = (cb) => {
     Post
     .findById(req.params.id)
@@ -67,6 +79,7 @@ controller.show = (req, res) => {
     });
   }
 
+  // grabs all comments
   const getComments = (cb) => {
     Comment
     .findAllByPostId(req.params.id)
@@ -75,7 +88,7 @@ controller.show = (req, res) => {
       cb();
     });
   }
-
+  // run each function aysnchronously
   async.parallel([getPosts, getComments], () => {
     res.render('show', {
       post: post_data[0],

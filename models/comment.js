@@ -1,4 +1,5 @@
 const db = require('../config/db');
+// for converting to markdown
 const marked = require('marked');
 
 const Comment = {};
