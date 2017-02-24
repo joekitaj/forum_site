@@ -8,15 +8,12 @@ const controller = require('./controller');
 
 router.put('/:id/like', controller.like);
 
-// router.get('/', controller.login);
 router.get('/', controller.index);
 router.get('/new', controller.newPost);
 router.get('/:id', controller.show);
-// router.get('/logout')
 
 // router.get('/logout', controller.logout);
 
-// router.post('/login', controller.saveUser);
 router.post('/new', controller.addPost);
 router.post('/:id/comment', controller.addComment);
 

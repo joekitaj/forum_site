@@ -1,14 +1,15 @@
 const db = require('../config/db');
+const bcrypt = require('bcrypt')
 const User = {};
 
 User.save = (user) => {
-  return db.query (`
+  user.password = bcrypt.hashSync(user.password, 10);
+
+  return db.query(`
     INSERT INTO users
-    (username)
-    VALUES
-    ($1, $2)`,
-    [user]
-  )
-}
+    (username, password)
+    VALUES ($1, $2)`,
+    [user.username, user.password]);
+};
 
 module.exports = User;
