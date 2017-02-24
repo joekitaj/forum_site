@@ -2,7 +2,8 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
   id BIGSERIAL PRIMARY KEY,
-  username VARCHAR(255)
+  username VARCHAR(255),
+  password VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS posts;

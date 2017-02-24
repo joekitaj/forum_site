@@ -6,7 +6,7 @@ User.save = (user) => {
     INSERT INTO users
     (username)
     VALUES
-    ($1)`,
+    ($1, $2)`,
     [user]
   )
 }
