@@ -30,6 +30,7 @@ controller.index = (req, res) => {
 
 // Select a single post and show it and its comments
 controller.show = (req, res) => {
+  let authentic = req.session.isAuthenticated;
   let post_data;
   let comment_data;
 
@@ -56,7 +57,8 @@ controller.show = (req, res) => {
   async.parallel([getPosts, getComments], () => {
     res.render('posts/show', {
       post: post_data[0],
-      comments: comment_data
+      comments: comment_data,
+      authentic: authentic
     });
   });
 }

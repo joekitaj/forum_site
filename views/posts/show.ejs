@@ -28,19 +28,27 @@
         <%- post.post_content %>
       </div>
     </div>
-    <form action="/posts/<%=post.id %>/like?_method=PUT&show=true" method = "POST">
+    <% if (authentic) { %>
+      <form action="/posts/<%=post.id %>/like?_method=PUT&show=true" method = "POST">
+        <div class="likes">
+          <p>LIKES: <%= post.likes %></p>
+        </div>
+        <input class="like-button btn btn-primary" type="submit" value="LIKE">
+      </form>
+    <% } else { %>
       <div class="likes">
         <p>LIKES: <%= post.likes %></p>
       </div>
-      <input class="like-button btn btn-primary" type="submit" value="LIKE">
-    </form>
+    <% }%>
   </main>
-  <div class="comment-input">
-    <textarea form="add-comment" name="comment[comment_content]" rows="8" cols="50"></textarea>
-    <form id="add-comment" action="/posts/<%= post.id%>/comment" method="POST">
-      <input class="comment-button btn btn-primary" type="submit" value="Add Comment">
-    </form>
-  </div>
+  <% if (authentic) { %>
+    <div class="comment-input">
+      <textarea form="add-comment" name="comment[comment_content]" rows="8" cols="50"></textarea>
+      <form id="add-comment" action="/posts/<%= post.id%>/comment" method="POST">
+        <input class="comment-button btn btn-primary" type="submit" value="Add Comment">
+      </form>
+    </div>
+  <% }%>
   <div class="comment-area">
     <p>COMMENTS: <%= post.comments %></p>
     <div class="comments">
