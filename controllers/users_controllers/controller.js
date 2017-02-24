@@ -11,8 +11,8 @@ controller.saveUser = (req, res) => {
   User
   .save(req.body.user)
   .then(() => {
-    res.redirect('/posts');
     req.session.isAuthenticated = true;
+    res.redirect('/posts');
   })
   .catch((err) => {
       res
@@ -37,7 +37,6 @@ controller.process_login = (req, res) => {
         // Here if email is found & pw matches
         req.session.isAuthenticated = true;
         res.redirect('/posts');
-        // NOTE: set up the session as well
       } else {
         // If email is found, but pw is wrong
         res.redirect('/users/login');
@@ -48,8 +47,15 @@ controller.process_login = (req, res) => {
   })
 };
 
-controller.logout = (req, res) => {
-  
-}
+// ends the session on clicking logout
+controller.logout = (req,res) => {
+  req.session.destroy((err) => {
+    if(err) {
+      console.log(err);
+    } else {
+      res.redirect('/posts');
+    }
+  });
+};
 
 module.exports = controller;
