@@ -12,6 +12,7 @@ controller.saveUser = (req, res) => {
   .save(req.body.user)
   .then(() => {
     req.session.isAuthenticated = true;
+    req.session.username = req.body.user.username;
     res.redirect('/posts');
   })
   .catch((err) => {
@@ -36,6 +37,7 @@ controller.process_login = (req, res) => {
       if (isAuthed) {
         // Here if email is found & pw matches
         req.session.isAuthenticated = true;
+        req.session.username = req.body.user.username;
         res.redirect('/posts');
       } else {
         // If email is found, but pw is wrong
