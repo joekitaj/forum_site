@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const session = require('express-session');
 
-// Required by sessions
-router.use(session({secret: 'Rangus'}));
+router.use('/posts', require('./controllers/posts_controllers'));
 
-router.use('/', require('./controllers/posts_controllers'));
+router.use('/users', require('./controllers/users_controllers'));
 
 module.exports = router;

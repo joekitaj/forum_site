@@ -57,7 +57,7 @@ controller.show = (req, res) => {
 // Adds a new comment
 controller.addComment = (req, res) => {
   Comment
-  .save(req.body.comment, req.params.id, timestamp('MM/DD/YYYY'), name)
+  .save(req.body.comment, req.params.id, timestamp('MM/DD/YYYY'))
   .then(() => {
     res.redirect(`/posts/${req.params.id}`)
   })
@@ -76,7 +76,7 @@ controller.newPost = (req, res) => {
 // Adds the new post
 controller.addPost = (req, res) => {
   Post
-  .save(req.body.post, timestamp('MM/DD/YYYY'), name)
+  .save(req.body.post, timestamp('MM/DD/YYYY'))
   .then(() => {
     res.redirect('/posts')
   })

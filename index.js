@@ -7,6 +7,10 @@ const methodOverride = require('method-override');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.get('/', (req, res) => {
+  res.redirect('/posts')
+})
+
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
