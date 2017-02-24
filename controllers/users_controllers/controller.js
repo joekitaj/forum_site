@@ -1,4 +1,5 @@
-const User = require('../../models/user')
+const User = require('../../models/user');
+const bcrypt = require('bcrypt');
 
 let controller = {};
 
@@ -34,7 +35,7 @@ controller.process_login = (req, res) => {
       if (isAuthed) {
         // Here if email is found & pw matches
         req.session.isAuthenticated = true;
-        res.redirect('/dashboard');
+        res.redirect('/posts');
         // NOTE: set up the session as well
       } else {
         // If email is found, but pw is wrong
