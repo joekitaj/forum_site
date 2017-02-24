@@ -11,7 +11,8 @@ controller.saveUser = (req, res) => {
   User
   .save(req.body.user)
   .then(() => {
-      res.redirect('/posts');
+    res.redirect('/posts');
+    req.session.isAuthenticated = true;
   })
   .catch((err) => {
       res
@@ -45,6 +46,10 @@ controller.process_login = (req, res) => {
       res.redirect('/users/login')
     }
   })
+};
+
+controller.logout = (req, res) => {
+  
 }
 
 module.exports = controller;
