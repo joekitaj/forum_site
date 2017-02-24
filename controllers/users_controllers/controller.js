@@ -1,7 +1,7 @@
 let controller = {};
 
 controller.index = (req, res) => {
-  res.render('login');
+  res.render('users/login');
 }
 
 controller.saveUser = (req, res) => {

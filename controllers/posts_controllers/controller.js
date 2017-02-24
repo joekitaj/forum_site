@@ -14,7 +14,7 @@ controller.index = (req, res) => {
   Post
   .findAll()
   .then((data) => {
-    res.render('index', {posts: data});
+    res.render('posts/index', {posts: data});
   })
   .catch((err) => {
     console.log('Error:',err);
@@ -47,7 +47,7 @@ controller.show = (req, res) => {
   }
   // run each function aysnchronously
   async.parallel([getPosts, getComments], () => {
-    res.render('show', {
+    res.render('posts/show', {
       post: post_data[0],
       comments: comment_data
     });
@@ -70,7 +70,7 @@ controller.addComment = (req, res) => {
 
 // Brings up the new post screen
 controller.newPost = (req, res) => {
-  res.render('new');
+  res.render('posts/new');
 };
 
 // Adds the new post
