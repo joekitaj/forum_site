@@ -21,6 +21,29 @@ controller.saveUser = (req, res) => {
 
 controller.new = (req, res) => {
   res.render('users/new')
+};
+
+controller.process_login = (req, res) => {
+  User
+  .findByUsername(req.body.user.username)
+  .then((user) => {
+    if (user) {
+      // Here if email is found
+      const isAuthed = bcrypt.compareSync(req.body.user.password, user.password);
+
+      if (isAuthed) {
+        // Here if email is found & pw matches
+        req.session.isAuthenticated = true;
+        res.redirect('/dashboard');
+        // NOTE: set up the session as well
+      } else {
+        // If email is found, but pw is wrong
+        res.redirect('/users/login');
+      }
+    } else {
+      res.redirect('/users/login')
+    }
+  })
 }
 
 module.exports = controller;
