@@ -4,7 +4,11 @@ I've built an example forum site that could be used as a stand-alone app, or imp
 
 The site uses Node.js & Express on the back-end. It utilizes a Ruby-esque MVC framework. Bootstrap was used for a majority of the front-end. jQuery used in certain instances as well.
 
-The site features a pseudo-login page, in which users must input a username. The purpose of this is to attribute comments and posts to an author. Users can post, like, and comment. Logging out terminates the session and brings one back to the login page.
+Users are initially directed to the main posts section. They may login at the top, or explore posts. Users that do not have existing accounts may create them.
+
+If a user attempts to create a new post, and has not logged in, they will be directed to the login page. The same goes for liking and commenting. Logged in users can post, like, and comment. This is all handled using `express-session.`
+
+Logging out terminates the session and brings one back to the login page.
 
 All user input is automatically converted to Markdown using the `marked` package. Other dependencies can be found in `package.json.`
 
