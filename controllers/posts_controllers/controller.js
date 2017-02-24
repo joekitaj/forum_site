@@ -11,13 +11,18 @@ let controller = {};
 
 // Show the home page with all posts
 controller.index = (req, res) => {
+  let authentic = req.session.isAuthenticated;
+  console.log(authentic);
   Post
   .findAll()
   .then((data) => {
-    res.render('posts/index', {posts: data});
+    res.render('posts/index', {
+      posts: data,
+      authentic: authentic
+    });
   })
   .catch((err) => {
-    console.log('Error:',err);
+    console.log('Error:', err);
   });
 };
 
