@@ -22,11 +22,27 @@ button {
   background-color: #D2D2D2;
 }
 
-.logout {
+.welcome {
   position: absolute;
   top: 0;
   right: 0;
   margin: 10px 10px 0 0;
+  padding: 20px;
+}
+
+.login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px 10px 0 0;
+  padding: 20px;
+}
+
+.logout {
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  margin: 15px 10px 0 0;
   padding: 20px;
 }
 

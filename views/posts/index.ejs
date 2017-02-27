@@ -34,9 +34,12 @@
     </header>
     <main>
       <% if(authentic) { %>
+        <div class="welcome">
+          <p>Hello <%= name %></p>
+        </div>
         <a class="logout" href="/users/logout">Logout</a>
       <% } else { %>
-        <a class="logout" href="/users/login">Login</a>
+        <a class="login" href="/users/login">Login</a>
       <% } %>
       <form action="/posts/new" method="GET">
         <button type="submit" class="btn btn-primary">+ New Post</button>

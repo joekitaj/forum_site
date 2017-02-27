@@ -14,13 +14,15 @@ let name;
 // Show the home page with all posts
 controller.index = (req, res) => {
   let authentic = req.session.isAuthenticated;
+  let name = req.session.username;
   console.log(authentic);
   Post
   .findAll()
   .then((data) => {
     res.render('posts/index', {
       posts: data,
-      authentic: authentic
+      authentic: authentic,
+      name: name
     });
   })
   .catch((err) => {
@@ -31,6 +33,7 @@ controller.index = (req, res) => {
 // Select a single post and show it and its comments
 controller.show = (req, res) => {
   let authentic = req.session.isAuthenticated;
+  let name = req.session.username;
   let post_data;
   let comment_data;
 
@@ -58,7 +61,8 @@ controller.show = (req, res) => {
     res.render('posts/show', {
       post: post_data[0],
       comments: comment_data,
-      authentic: authentic
+      authentic: authentic,
+      name: name
     });
   });
 }
